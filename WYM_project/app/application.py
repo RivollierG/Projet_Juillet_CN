@@ -1,5 +1,7 @@
+
 from flask import Flask, render_template, request
-# from BDD/connection import User, engine
+from requestscript import summarize
+from BDD/connection import User, engine
 
 app = Flask(__name__)				# instantiation application
 
@@ -18,7 +20,11 @@ def func_contact():
     utilisateur.to_postgres(engine)
     return render_template("contacted.html", name=n, email=e, phone=t, message=m)
 
-#hello()
+@app.route('/NLP', methods=['POST','get'])
+def summary():
+    text = request.form.get('msg')
+    print(text)
+    return summarize(text=text)
 
 if __name__ == '__main__':
       app.run(host='0.0.0.0', port=5010, debug=True)
