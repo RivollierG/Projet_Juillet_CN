@@ -8,4 +8,4 @@ Created on Tue Jul  5 11:13:34 2022
 
 from sqlalchemy import create_engine
 
-engine = create_engine("postgresql+psycopg2://wym_admin:admin@0.0.0.0:5432/persistanceDB")
+engine = create_engine("postgresql+psycopg2://wym_admin:admin@0.0.0.0:5432/postgres")
