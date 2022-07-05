@@ -5,7 +5,7 @@ services:
     image: postgres
     restart: always
     volumes:
-      - ../data/WYM_project/DBB/persistanceDB:/var/lib/postgresql/data
+      - ../WYM_project/DBB/persistanceDB:/var/lib/postgresql/data
     ports:
       - 5432:5432	 
     environment:

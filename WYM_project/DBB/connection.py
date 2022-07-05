@@ -30,7 +30,7 @@ class User(Base):
         session = Session()
         session.add(self)  
         session.commit()
-        
+
         
 
 if __name__ == '__main__':
