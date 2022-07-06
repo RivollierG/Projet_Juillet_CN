@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ../WYM_project/DBB/persistanceDB:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=wym_admin
+      - POSTGRES_PASSWORD=admin
+      
+  web:
+    image: quay.io/codait/max-text-summarizer
+    port: 5000:5000

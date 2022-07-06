@@ -1,0 +1,22 @@
+{% extends "template.html" %} {% block body %} 
+        
+<div id="table-wrapper">
+        <div id="table-scroll">
+        <table>
+        <thead>
+        <tr>
+        <th><span class="text">Id</span></th>
+        <th><span class="text">Nom</span></th>
+        <th><span class="text">Adresse email</span></th>
+        <th><span class="text">Téléphone</span></th>
+        <th><span class="text">Message</span></th>                
+        </tr>
+        </thead>
+        <tbody>
+                {{texte|safe}}
+        </tbody>
+        </table>
+        </div>
+</div>
+
+{% endblock %}
