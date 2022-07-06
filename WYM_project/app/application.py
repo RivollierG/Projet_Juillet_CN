@@ -15,8 +15,12 @@ def func_about():
 
 @app.route('/data', methods = ['GET'])
 def func_data():
-    list_dict = read_DB(engine)
-    return render_template("data.html", texte=list_dict)
+    list_dict = eval(read_DB(engine))
+    texte = str()
+    for ligne in list_dict:
+        l = str("<tr><td>") + str(ligne["id"]) + str("</td><td>") + str(ligne["name"]) + str("</td><td>") + str(ligne["email"]) + str("</td><td>") + str(ligne["phone"])  + str("</td><td>") + str(ligne["message"]) + str("</td></tr>")
+        texte = texte + l    
+    return render_template("data.html", texte=texte)
 
 @app.route('/contact')
 def func_contact():
