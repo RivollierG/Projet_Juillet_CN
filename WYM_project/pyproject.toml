@@ -21,6 +21,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.scripts]
 siteweb = "app.application:main"
 
+
 packages = [
     { include = "app", from = "." }
 ]
