@@ -1,20 +1,22 @@
 from flask import Flask, render_template, request
-from requestscript import summarize
-from BDD/connection import User, engine, read_DB
+from model.requestscript import summarize
+from BDD.connection import User, engine, read_DB
 
 app = Flask(__name__)				# instantiation application
 
-@app.route('/about')				# association d’une route (URL) avec la fonction suivante
-def func_about():
-    return render_template('about.html')
-
-@app.route('/home')
+@app.route('/')
 def func_home():
     return render_template('home.html')
 
+@app.route('/about')
+def func_about():
+    return render_template('about.html')
+
 @app.route('/data', methods = ['GET'])
 def func_data():
-    return read_DB(engine)
+    list_dict = read_DB(engine)
+    
+    return render_template("data.html", texte=list_dict)
 
 @app.route('/contact')
 def func_contact():
@@ -31,11 +33,15 @@ def func_contacted():
     utilisateur.to_postgres(engine)
     return render_template("contacted.html", name=n, email=e, phone=t, message=m)
 
-@app.route('/NLP', methods=['POST','get'])
+@app.route('/text', methods = ['GET','POST'])
+def func_text():
+    return render_template("text.html")
+
+@app.route('/NLP', methods=['POST','GET'])
 def summary():
     text = request.form.get('msg')
     print(text)
-    return summarize(text=text)
+    return render_template('NLP.html', texte=summarize(text=text))
 
 if __name__ == '__main__':
       app.run(host='0.0.0.0', port=5010, debug=True)

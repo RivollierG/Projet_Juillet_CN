@@ -15,4 +15,4 @@ def summarize(source='http://0.0.0.0:5000/model/predict',text="""i'm immortal"""
     message = response.json()['summary_text'][0]
     print(message)
     return (message)
-summarize()
+# summarize()

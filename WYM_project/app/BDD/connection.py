@@ -6,6 +6,7 @@ Created on Tue Jul  5 11:13:34 2022
 @author: guillaume.rivollier@Digital-Grenoble.local
 """
 
+import json
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import Column, Integer, String
@@ -37,10 +38,8 @@ def read_DB(engine):
         select_statement = ("select * from users")
         result_set = conn.execute(select_statement)
         for r in result_set:
-            l.append(r)
-    return l
-
-
+            l.append(dict(r))
+    return json.dumps(l)
 
 if __name__ == '__main__':
     import pandas as pd

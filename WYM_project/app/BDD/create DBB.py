@@ -6,7 +6,7 @@ Created on Tue Jul  5 14:21:01 2022
 @author: guillaume.rivollier@Digital-Grenoble.local
 """
 
-
+from connection import engine
 from sqlalchemy import Column, Integer, String
 from sqlalchemy import Table
 from sqlalchemy import MetaData
