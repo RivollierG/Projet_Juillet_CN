@@ -22,7 +22,6 @@ def func_data():
         texte = texte + l    
     return render_template("data.html", texte=texte)
 
-
 @app.route('/contact')
 def func_contact():
     return render_template('contact.html')
