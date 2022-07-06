@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request
 from model.requestscript import summarize
 from BDD.connection import User, engine, read_DB
+from BDD.creation import data_base_creation(engine)
 
-app = Flask(__name__)				# instantiation application
+app = Flask(__name__)  ## instantiation application
 
 @app.route('/')
 def func_home():
@@ -15,7 +16,6 @@ def func_about():
 @app.route('/data', methods = ['GET'])
 def func_data():
     list_dict = read_DB(engine)
-    
     return render_template("data.html", texte=list_dict)
 
 @app.route('/contact')
@@ -29,6 +29,7 @@ def func_contacted():
     e = result['mail']
     t = result['telephone']
     m = result['message']
+    data_base_creation(engine)
     utilisateur=User(name=n, email=e, phone=t, message=m)
     utilisateur.to_postgres(engine)
     return render_template("contacted.html", name=n, email=e, phone=t, message=m)
