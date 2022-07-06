@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
-from requestscript import summarize
-from BDD/connection import User, engine, read_DB
+#from requestscript import summarize
+#from BDD/connection import User, engine, read_DB
 
 app = Flask(__name__)				# instantiation application
 
