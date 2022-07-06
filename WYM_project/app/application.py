@@ -1,16 +1,13 @@
-from flask import Flask, render_template
+
+from flask import Flask, render_template, request
 from requestscript import summarize
-# from BDD/connection import User, engine
+from BDD/connection import User, engine
 
 app = Flask(__name__)				# instantiation application
 
-app.route('/')				        # association d’une route (URL) avec la fonction suivante
-def hello():
-    name1="Renaud"
+@app.route('/about')				        # association d’une route (URL) avec la fonction suivante
+def hello(name1="Renaud"):
     return render_template('index.html', name=name1)
-
-def hello_world():
-    return 'Hello world!'
 
 @app.route('/contact', methods = ['GET','POST'])
 def func_contact():
@@ -23,16 +20,11 @@ def func_contact():
     utilisateur.to_postgres(engine)
     return render_template("contacted.html", name=n, email=e, phone=t, message=m)
 
-
 @app.route('/NLP', methods=['POST','get'])
 def summary():
     text = request.form.get('msg')
     print(text)
     return summarize(text=text)
-
-
-
-hello()
 
 if __name__ == '__main__':
       app.run(host='0.0.0.0', port=5010, debug=True)
