@@ -11,7 +11,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import Column, Integer, String
 
 engine = create_engine("postgresql+psycopg2://wym_admin:admin@0.0.0.0:5432/postgres",
-                       echo=True)
+                       echo=False)
 
 
 Base = declarative_base()
@@ -31,8 +31,29 @@ class User(Base):
         session.add(self)  
         session.commit()
 
-        
+def read_DB(engine):
+    l = []
+    with engine.connect() as conn:
+        select_statement = ("select * from users")
+        result_set = conn.execute(select_statement)
+        for r in result_set:
+            l.append(r)
+    return l
+
+
 
 if __name__ == '__main__':
     import pandas as pd
     pd.read_sql("select * from users",engine)
+    with engine.connect() as conn:
+        conn.execute("select * from users")
+        resp = conn.fetchall()
+        for row in resp:
+            print(row)
+      
+    with engine.connect() as conn:
+
+        select_statement = ("select * from users")
+        result_set = conn.execute(select_statement)
+        for r in result_set:
+            print(r)
