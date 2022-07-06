@@ -1,16 +1,27 @@
-
 from flask import Flask, render_template, request
 from requestscript import summarize
-from BDD/connection import User, engine
+from BDD/connection import User, engine, read_DB
 
 app = Flask(__name__)				# instantiation application
 
-@app.route('/about')				        # association d’une route (URL) avec la fonction suivante
-def hello(name1="Renaud"):
-    return render_template('index.html', name=name1)
+@app.route('/about')				# association d’une route (URL) avec la fonction suivante
+def func_about():
+    return render_template('about.html')
 
-@app.route('/contact', methods = ['GET','POST'])
+@app.route('/home')
+def func_home():
+    return render_template('home.html')
+
+@app.route('/data', methods = ['GET'])
+def func_data():
+    return read_DB(engine)
+
+@app.route('/contact')
 def func_contact():
+    return render_template('contact.html')
+
+@app.route('/contacted', methods = ['GET','POST'])
+def func_contacted():
     result = request.form
     n = result['nom']
     e = result['mail']
