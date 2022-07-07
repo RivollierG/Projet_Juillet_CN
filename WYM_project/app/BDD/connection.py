@@ -11,7 +11,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import Column, Integer, String
 
-engine = create_engine("postgresql+psycopg2://wym_admin:admin@0.0.0.0:5432/postgres",
+engine = create_engine("postgresql+psycopg2://wym_admin:admin@db:5432/postgres",
                        echo=False)
 
 
