@@ -2,7 +2,7 @@
 
 import requests
 
-def summarize(source='http://0.0.0.0:5000/model/predict',text="""i'm immortal"""):
+def summarize(source='http://model:5000/model/predict',text="""i'm immortal"""):
 
 
     headers = {
