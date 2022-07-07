@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   webapp:
-    build: ../WYM_project/
+    image: rivollierg/guilosore
     ports:
       - 5010:5010
     links:
