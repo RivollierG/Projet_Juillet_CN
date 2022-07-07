@@ -33,7 +33,6 @@ def func_contacted():
     e = result['mail']
     t = result['telephone']
     m = result['message']
-    data_base_creation(engine)
     utilisateur=User(name=n, email=e, phone=t, message=m)
     utilisateur.to_postgres(engine)
     return render_template("contacted.html", name=n, email=e, phone=t, message=m)
@@ -47,6 +46,10 @@ def summary():
     text = request.form.get('msg')
     print(text)
     return render_template('NLP.html', texte=summarize(text=text))
+
+def main():
+    data_base_creation(engine)
+    app.run(host='0.0.0.0', port=5010) # démarrage de l’appli
 
 if __name__ == '__main__':
       app.run(host='0.0.0.0', port=5010, debug=True)
