@@ -4,10 +4,6 @@ version = "1.0"
 description = ""
 authors = ["Renaud Crosset", "Guillaume Rivollier", "Louis Fourel", "Soros Hattarach"]
 
-packages = [
-    { include = "./app/model"},
-    { include = "./app/BDD"},
-]
 
 [tool.poetry.dependencies]
 python = "^3.8"

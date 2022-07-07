@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
-from model.requestscript import summarize
-from BDD.connection import User, engine, read_DB
-from BDD.creation import data_base_creation
+from app.model.requestscript import summarize
+from app.BDD.connection import User, engine, read_DB
+from app.BDD.creation import data_base_creation
 
 app = Flask(__name__)  ## instantiation application
 
