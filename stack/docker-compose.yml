@@ -11,6 +11,10 @@ services:
       - POSTGRES_USER=wym_admin
       - POSTGRES_PASSWORD=admin
       
-  web:
+  model:
     image: quay.io/codait/max-text-summarizer
-    port: 5000:5000
+    ports: 
+      - 5000:5000
+    
+  webapp:
+    build: ../WYM_project/
