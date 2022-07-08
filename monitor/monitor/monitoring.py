@@ -54,7 +54,7 @@ if bool5:
     pict_selected = st.selectbox(
         'Which picture do you want to display?',
         ('kitten', 'dog', 'minion', 'mountain', 'aucune')
-    )
+    )orm
     # st.write(pict_selected)
     if pict_selected == 'kitten' : 
         img = "https://media.gettyimages.com/photos/kitten-on-lap-picture-id138468381?s=2048x2048"
@@ -108,9 +108,11 @@ if bool6:
 
 # progress_bar.empty()
 
+
 # Streamlit widgets automatically run the script from top to bottom. Since
 # this button is not connected to any other logic, it just causes a plain
 # rerun.
+
 st.button("Re-run")
 
 
@@ -122,3 +124,4 @@ st.button("Re-run")
 
 # # You can access the value at any point with:
 # st.session_state.name
+
