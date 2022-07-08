@@ -28,5 +28,15 @@ services:
     image: quay.io/codait/max-text-summarizer
     ports: 
       - 5000:5000
+      
+#  monitoring:
+#    build: ../monitor/
+#    ports: 
+#      - 8501:8501
+#    links:
+#      - db
+#      - model
+#    command: ["monitor"]  
+  
 
 
