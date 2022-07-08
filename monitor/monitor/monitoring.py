@@ -128,4 +128,3 @@ def main():
 
     # # You can access the value at any point with:
     # st.session_state.name
-
