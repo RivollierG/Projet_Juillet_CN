@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "monitor"
+version = "0.1.0"
+description = ""
+authors = ["G. Rivollier <rivollier.g@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+streamlit = "^1.10.0"
+SQLAlchemy = "^1.4.39"
+psycopg2-binary = "^2.9.3"
+SQLAlchemy-Utils = "^0.38.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -9,7 +9,7 @@ Created on Tue Jul  5 11:13:34 2022
 import json
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, DateTime, Numeric
 
 engine = create_engine("postgresql+psycopg2://wym_admin:admin@db:5432/postgres",
                        echo=False)
@@ -32,7 +32,25 @@ class User(Base):
         session.add(self)  
         session.commit()
 
-def read_DB(engine):
+class Text(Base):
+    
+    __tablename__ = 'texts'
+    
+    id = Column(Integer, primary_key=True)
+    contenu = Column(String)
+    resume = Column(String)
+    date = Column(DateTime)
+    delay = Column(Numeric)
+        
+    def to_postgres(self, engine):
+        Session = sessionmaker(engine)  
+        session = Session()
+        session.add(self)  
+        session.commit()
+
+
+
+def read_DB_users(engine):
     l = []
     with engine.connect() as conn:
         select_statement = ("select * from users")
@@ -40,6 +58,16 @@ def read_DB(engine):
         for r in result_set:
             l.append(dict(r))
     return json.dumps(l)
+
+def read_DB_texts(engine):
+    l = []
+    with engine.connect() as conn:
+        select_statement = ("select * from texts")
+        result_set = conn.execute(select_statement)
+        for r in result_set:
+            l.append(dict(r))
+    return l
+
 
 if __name__ == '__main__':
     import pandas as pd
