@@ -20,6 +20,7 @@ bool3 = st.sidebar.checkbox('Show date selection')
 bool4 = st.sidebar.checkbox('Show mountain picture')
 bool5 = st.sidebar.checkbox('Show picture selection')
 bool6 = st.sidebar.checkbox('Show map')
+bool7 = st.sidebar.checkbox('Show awesome video')
 
 st.title("GuiLoSoRe's dashboard")
 
@@ -54,7 +55,7 @@ if bool5:
     pict_selected = st.selectbox(
         'Which picture do you want to display?',
         ('kitten', 'dog', 'minion', 'mountain', 'aucune')
-    )orm
+    )
     # st.write(pict_selected)
     if pict_selected == 'kitten' : 
         img = "https://media.gettyimages.com/photos/kitten-on-lap-picture-id138468381?s=2048x2048"
@@ -83,6 +84,10 @@ if bool6:
         columns=['lat', 'lon'])
 
     st.map(map_data, zoom=11)
+
+if bool7:
+    st.header('Awesome video :')
+    st.video("https://www.youtube.com/watch?v=UN4DaSAZel4&list=PLuU3eVwK0I9PT48ZBYAHdKPFazhXg76h5")
 
 
 # # Add a slider to the sidebar:
