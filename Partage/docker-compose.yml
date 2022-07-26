@@ -29,4 +29,10 @@ services:
     ports: 
       - 5000:5000
 
-
+  monitor:
+    image: rivollierg/guilosore-monitor
+    git status
+    links:
+      - db
+      - model
+    command: ["monitoring.py"]

@@ -1,12 +1,6 @@
-FROM alpine
-
-
-RUN apk add py3-pip python3
+FROM python:3.8
     
-COPY ./dist/monitor-0.1.0-py3-none-any.whl /
+COPY ./requirements.txt ./requirements.txt
+COPY ./monitor/monitoring.py ./monitoring.py
 
-WORKDIR /
-
-RUN pip install numpy==1.19.3
-RUN pip install monitor-0.1.0-py3-none-any.whl
-
+RUN pip3 install -r requirements.txt

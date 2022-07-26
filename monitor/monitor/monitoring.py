@@ -55,7 +55,7 @@ def main():
         pict_selected = st.selectbox(
             'Which picture do you want to display?',
             ('kitten', 'dog', 'minion', 'mountain', 'aucune')
-        )orm
+        )
         # st.write(pict_selected)
         if pict_selected == 'kitten' : 
             img = "https://media.gettyimages.com/photos/kitten-on-lap-picture-id138468381?s=2048x2048"
@@ -128,3 +128,6 @@ def main():
 
     # # You can access the value at any point with:
     # st.session_state.name
+
+if __name__ == "main":
+    main()
