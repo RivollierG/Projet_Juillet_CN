@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from app.model.requestscript import summarize
-from app.BDD.connection import User, engine, read_DB_users, Text, read_DB_texts
+from app.BDD.connection import User, engine, read_DB_users, Texte, read_DB_texts
 from app.BDD.creation import table_creation_texts, table_creation_users
 import time
 app = Flask(__name__)  ## instantiation application
@@ -48,7 +48,7 @@ def summary():
     resum = summarize(text=text)
     delay = now - time.time()
     print(text)
-    monTexte = Text(contenu=text, resume=resum, date=time.ctime(time.time()), delay = delay)
+    monTexte = Texte(contenu=text, resume=resum, date=time.ctime(time.time()), delay = delay)
     monTexte.to_postgres(engine)
     print(read_DB_texts(engine))
     return render_template('NLP.html', texte= resum)

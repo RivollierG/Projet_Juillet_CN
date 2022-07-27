@@ -10,5 +10,5 @@ COPY ./monitor /app/monitor
 
 RUN pip3 install -r requirements.txt
 
-WORKDIR app
+WORKDIR /app
 ENTRYPOINT ["streamlit", "run"]

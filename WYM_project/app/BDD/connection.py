@@ -32,7 +32,7 @@ class User(Base):
         session.add(self)  
         session.commit()
 
-class Text(Base):
+class Texte(Base):
     
     __tablename__ = 'texts'
     
