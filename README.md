@@ -13,7 +13,7 @@
 - Installer poetry dans l'environnement virtuel
 - La partie site web est contruite sur Flask
 - La partie monitoring est construite sur Streamlit
-- Chacun de ses deux projets est au seins d'un projet poetry
+- Chacun de ces deux projets est au sein d'un projet poetry
 
 ***
   
