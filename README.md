@@ -6,6 +6,7 @@
 - Se placer dans le dossier Download/
 - Modifier éventuellement l'emplacement du volume docker de la base de donnée
 - Lancer la commande <pre>docker-compose up</pre>
+- S'amuser sur localhost:5010 et localhost:8501
 
 ## Comment continuer le développement
 
