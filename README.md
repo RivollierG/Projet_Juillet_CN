@@ -1,2 +1,26 @@
 # Projet_Juillet_CN
-Projet ilôt central campus numerique juillet 2022
+
+## Comment le lancer
+
+- Copier-coller le ficher Partage/docker-compose.yml
+- Se placer dans le dossier Download/
+- Modifier éventuellement l'emplacement du volume docker de la base de donnée
+- Lancer la commande <pre>docker-compose up</pre>
+
+## Comment continuer le développement
+
+- Cloner le dépôt
+- Installer poetry dans l'environnement virtuel
+- La partie site web est contruite sur Flask
+- La partie monitoring est construite sur Streamlit
+- Chacun de ses deux projets est au seins d'un projet poetry
+
+***
+  
+Projet réalisé par :  
+
+Renaud Crosset  
+Louis Fourel  
+Soros Hattarach  
+Guillaume Rivollier  
+
